@@ -12,7 +12,7 @@ let map;
 
 async function initMap() {
   // The location of Tigre
-  const position = { lat:-34.416666666667, lng: -58.583333333333 };
+  const position = { lat:14.64072, lng:  -90.51327};
   // Request needed libraries.
   const { Map } = await google.maps.importLibrary("maps");
   console.log('estoy funcionando');
@@ -21,7 +21,7 @@ async function initMap() {
 
   // The map, centered at Tigre
   map = new Map(document.getElementById("map"), {
-    zoom: 10,
+    zoom: 12,
     center: position,
     mapId: "DEMO_MAP_ID",
   });
