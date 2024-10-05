@@ -54,7 +54,9 @@
 /* General */
 body {
   background-color: #F8F8F8;
+  
 }
+
 
 .hero {
   min-height: 100vh;
@@ -192,6 +194,28 @@ figcaption {
 
 .profile-image {
   width: 100px;
-  height: 100px;
+  height: auto;
 }
+.proyectos_desarollo  {
+  border: none;
+  
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(157,183,201,1);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(157,183,201,1);
+  box-shadow: 1px 1px 5px 0px rgba(157,183,201,1);
+    
+}
+@media (min-width: 768px ) {
+  .proyectos_desarollo  {
+    border: none;
+    border-bottom: 1px solid #c2c0c0;
+    margin: 0.4rem;
+    padding: 1rem;
+    
+  
+  }
+}
+
 
