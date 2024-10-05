@@ -57,9 +57,13 @@ body {
 }
 
 .hero {
-  min-height: 60vh;
+  min-height: 100vh;
   border-bottom-left-radius: 10%;
   border-bottom-right-radius: 10%;
+  display: flex;
+ 
+  justify-content: center;
+  align-items: center;
 }
 
 .espacios {
@@ -190,3 +194,4 @@ figcaption {
   width: 100px;
   height: 100px;
 }
+
