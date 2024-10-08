@@ -60,17 +60,25 @@ body {
 
 .hero {
   min-height: 100vh;
-  border-bottom-left-radius: 10%;
-  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   display: flex;
  
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 820px ) {
+  .hero{
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+
+  }
+    
+}
 
 .espacios {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 /* Botones */
@@ -126,9 +134,13 @@ figcaption {
 
 /* Bordes redondeados */
 .redondeado {
-  border-radius: 10%;
+  border-radius: 1rem;
 }
-
+@media (min-width: 1080px ) {
+  .redondeado {
+    border-radius: 5rem;
+  }
+}
 /* Tipografías */
 .inria-sans-light {
   font-family: "Inria Sans", sans-serif;
@@ -218,4 +230,28 @@ figcaption {
   }
 }
 
+/** NAV CONPETENCIAS*/
+.navCompetencias{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 1rem;
+  
 
+}
+
+@media (min-width: 720px ) {
+    .navCompetencias {
+      
+      flex-direction: row;
+      justify-content: space-around;
+      
+    }
+}
+
+.competencias_Tec {
+  background-color: rgba(122, 122, 122, 0.8); 
+  
+
+
+}
