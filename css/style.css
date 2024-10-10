@@ -42,19 +42,64 @@
   0% {
     filter: grayscale(100%); /* Comienza en blanco y negro */
   }
+  25% {
+    filter: grayscale(75%); /* Pasa a color */
+  }
   50% {
-    filter: grayscale(0); /* Pasa a color */
+    filter: grayscale(50%); /* Regresa a blanco y negro */
   }
-  100% {
-    filter: grayscale(100%); /* Regresa a blanco y negro */
+  75% {
+    filter: grayscale(25%); /* Regresa a blanco y negro */
   }
+ 
+  75% {
+    filter: grayscale(25%); /* Regresa a blanco y negro */
+  }
+  50% {
+    filter: grayscale(50%); /* Regresa a blanco y negro */
+  }
+  25% {
+    filter: grayscale(75%); /* Regresa a blanco y negro */
+  }
+
+}
+
+:root{
+  --primario: #F8F8F8;
+  --secundario: #000;
+  --gris: #757575;
+  --grisClaro:  #EDECEB;
+
+  --fontmain:"Inria Sans", sans-serif;;
+}
+
+html {
+  box-sizing: border-box; /*para no modificar el padin de un elemento*/
+  font-size: 62.5%;/*1rem =10px*/
+  overflow: scroll; /* Permite el desplazamiento */
+  -ms-overflow-style: none;  /* Para IE y Edge */
+ 
+}
+html::-webkit-scrollbar {
+  display: none;  /* Oculta las barras de scroll en Chrome, Safari y Opera */
+}
+
+
+*,*:before,*:after {
+  box-sizing: inherit;
+}
+
+img{
+  max-width: 100%;
+  display: block;
 }
 
 
 /* General */
 body {
-  background-color: #F8F8F8;
-  
+  background-color: var(--primario);
+  /* background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--grisClaro) 0% );
+  */
 }
 
 
@@ -63,14 +108,12 @@ body {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   display: flex;
- 
-  justify-content: center;
-  align-items: center;
 }
+
 @media (min-width: 820px ) {
   .hero{
     border-bottom-left-radius: 5rem;
-    border-bottom-right-radius: 5rem;
+    border-bottom-right-radius:5rem;
 
   }
     
@@ -82,54 +125,99 @@ body {
 }
 
 /* Botones */
+
 .btn:hover {
   text-decoration: underline;
 }
 
 /* Figcaption */
 figcaption {
-  width: 120px;
-  height: 120px;
+  width: 8vh;
+  height: 8vh;
   object-fit: cover;
   overflow: hidden;
+  
 }
-
+@media (min-width: 768px ) {
+  figcaption {
+    width: 12vh;
+    height: 12vh;
+   
+  } 
+}
 /* Map */
 #map {
-  height: 600px;
+  height: 60rem;
   width: 100%;
-  border-radius: 2%;
+  border-radius: 10%;
 }
 
 /* Profile */
 #profile {
-  position: relative;
+position: relative; 
+  display: flex;
+  flex-direction: row-reverse;
+  
 }
 
 #profile img{
   animation: grayscale-sweep 10s ease-in-out infinite; /* Aplica la animación */
   /*transition: filter 0.5s ease; /* Suaviza la transición */
-
-
+  
 }
 
-#nametag {
-  position: absolute;
+.nametag {
+  position: absolute; 
+  font-size: 0.5rem;
   top: 30%;
-  left: 55%;
-  background-color: #F8F8F8;
+  left: 55%; 
+  background-color: var(--secundario);
+  color: var(--primario);
   transform: rotate(-10deg); /* Inclinación de 10 grados */
   transform-origin: center;  /* Giro desde el centro */
-  animation: float 3s ease-in-out infinite; /* Aplica la animaci*/
+  -webkit-box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
+  -moz-box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
+  box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
 }
 
+@media (min-width: 800px ) {
+  .nametag {
+    font-size: 1rem;
+      top: 30%;
+      left: 60%; 
+    }
+    
+    
+}
+@media (min-width: 1080px ) {
+  .nametag {
+    font-size: 1.2rem;
+    top: 30%;
+    left: 56%; 
+  
+  }
+  }
+
+  .btn-work{
+
+    -webkit-box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
+    -moz-box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
+    box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
+
+  }
+
+
+  
 /* Colores de fondo */
 .grey {
-  background-color: #EDECEB;
+  background-color: var(--grisClaro);
+}
+.black{
+  background-color: var(--secundario);
 }
 
 .white {
-  background-color: #F8F8F8;
+  background-color: var(--primario);
 }
 
 /* Bordes redondeados */
@@ -143,46 +231,56 @@ figcaption {
 }
 /* Tipografías */
 .inria-sans-light {
-  font-family: "Inria Sans", sans-serif;
-  font-weight: 300;
+  font-family: var(--fontmain);
+  font-weight: 400;
   font-style: normal;
 }
 
 .body {
-  font-family: "Inria Sans", sans-serif;
+  font-family: var(--fontmain);
   font-weight: 400;
   font-style: normal;
 }
 
 .h1 {
-  font-family: "Inria Sans", sans-serif;
+  font-family: var(--fontmain);
   font-weight: 700;
   font-style: normal;
-  letter-spacing: -3px;
+  letter-spacing: -1px;
 }
 
 .inria-sans-light-italic {
-  font-family: "Inria Sans", sans-serif;
+  font-family: var(--fontmain);
   font-weight: 300;
   font-style: italic;
 }
 
 .inria-sans-regular-italic {
-  font-family: "Inria Sans", sans-serif;
+  font-family: var(--fontmain);
   font-weight: 400;
   font-style: italic;
 }
 
 .inria-sans-bold-italic {
-  font-family: "Inria Sans", sans-serif;
+  font-family: var(--fontmain);
   font-weight: 700;
   font-style: italic;
+}
+p{
+  font-family: var(--fontmain);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+ul{
+  font-family: var(--fontmain);
+  font-weight: 400;
+  font-size: 1.5rem;
 }
 
 /* Texto Animado */
 .animated-text {
-  background: linear-gradient(120deg, #5fa4dc, #ADD8E6, #B0E0E6, #87CEEB);
-  background-size: 400%;
+  background: linear-gradient(120deg, #3e99e4, #81d0eb, #83d5e0, #4bbbe7);
+  background-size: 40%;
   -webkit-background-clip: text;
   background-clip: text;
   
@@ -194,24 +292,28 @@ figcaption {
 }
 
 .second-line {
-  background: linear-gradient(40deg, #008080, #72bdbd, #177d78);
-  background-size: 400%;
+  font-size: 2rem;
+  
+  background: linear-gradient(40deg, #02abab, #4eaeae, #1e8d87);
+  background-size: 40%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: grey-change 50s infinite;
   display: block;
-  font-size: 2rem;
+  
+  animation: grey-change 50s infinite;
+  white-space: pre-wrap; /* O pre para que respete los espacios */
+
 }
 
 .profile-image {
-  width: 100px;
+  width: 12rem;
   height: auto;
 }
 .proyectos_desarollo  {
   border: none;
   
-  background-color: rgb(255, 255, 255);
+  background-color: var(--primario);
   border-radius: 10px;
 
   -webkit-box-shadow: 1px 1px 5px 0px rgba(157,183,201,1);
@@ -236,7 +338,6 @@ figcaption {
   flex-direction: column;
   justify-content: center;
   border-radius: 1rem;
-  
 
 }
 
@@ -249,9 +350,196 @@ figcaption {
     }
 }
 
+
 .competencias_Tec {
-  background-color: rgba(122, 122, 122, 0.8); 
+  background-color: rgba(246, 78, 78, 0.8); 
+  height: 100vh;
+  width: 100vh;
   
+}
 
 
+
+
+
+/*! --------- */
+
+.container--icons {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--grisClaro);
+}
+
+.Pincial{
+  position: absolute;  /* Absolute para posicionarlo dentro del contenedor */
+  width: 50%;
+  height: 50%;
+ 
+  top: 50%;   /* Posición vertical al 50% del contenedor */
+  left: 50%;  /* Posición horizontal al 50% del contenedor */
+  transform: translate(-50%, -50%);  /* Centramos usando transform */
+  z-index: 2;  /* Pinicial estará sobre shapes */
+}
+
+.shape {
+  font-size: 2rem; /* Ajustar el tamaño del ícono */
+  color: rgba(121, 121, 121, 0.8);/* transparent; /* Color inicial transparente */
+  position: absolute; /* Necesario para mover los íconos */
+  animation: border-glow 25s infinite alternate;
+  z-index: 1;
+
+}
+
+.shape:hover {
+  color: rgb(1, 198, 237); /* Color azul al pasar el mouse */
+}
+ 
+.shape2 {
+  font-size: 1.5rem; /* Ajustar el tamaño del ícono */
+  color:rgba(121, 121, 121, 0.8);/* transparent; /* Color inicial transparente */
+  position: absolute; /* Necesario para mover los íconos */
+  animation: border-glow2 13s infinite alternate;
+  visibility: hidden;
+}
+
+.shape2:hover {
+  color: rgb(5, 239, 216); /* Color azul al pasar el mouse */
+}
+ @media (min-width: 780px ) {
+     .shape2{
+      font-size: 20px;
+
+     }
+     .shape{
+      font-size: 30px;
+     }
+ }
+
+@keyframes border-glow2 {
+  0% {
+      opacity: 0.3;
+  }
+
+  30% {
+      opacity: 0.7;
+  }
+  50% {
+      opacity: 1;
+  }
+  70% {
+      opacity: 0.6;
+  }
+
+  100% {
+      opacity: 0.3;
+  }
+}
+
+
+
+
+@keyframes border-glow {
+  0% {
+      opacity: 0.1;
+  }
+  15% {
+    opacity: 0.4;
+}
+  30% {
+      opacity: 0.6;
+  }
+  40% {
+      opacity: 0.8;
+  }
+  50% {
+      opacity: 1;
+  }
+  60% {
+      opacity: 0.8;
+  }
+  70% {
+      opacity: 0.6;
+  }
+
+  80% {
+      opacity: 0.4;
+  }
+  100% {
+      opacity: 0.2;
+  }
+}
+
+
+/* Contenedor de la barra de progreso */
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  margin-top: 2rem;
+}
+
+/* Fondo de la barra de progreso, para crear el margen alrededor */
+.progress-background {
+  width: 100%;
+  height: 2rem;
+  background-color: var(--grisClaro); /* Fondo de la barra no completada */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Barra de progreso (la parte que se llenará con color negro) */
+.progress-bar1 {
+  width: 30%; /* Este valor representa el progreso */
+  height: 100%;
+  background-color: black; /* Color negro para la parte completada */
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar2 {
+  width: 70%; /* Este valor representa el progreso */
+  height: 100%;
+  background-color: black; /* Color negro para la parte completada */
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar3 {
+  width: 50%; /* Este valor representa el progreso */
+  height: 100%;
+  background-color: black; /* Color negro para la parte completada */
+  position: relative;
+  overflow: hidden;
+}
+
+/* La animación dentro de la barra negra */
+.progress-bar1::before, .progress-bar2::before, .progress-bar3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(8, 8, 8) 25%, rgb(255, 255, 255) 50%, rgb(0, 0, 0) 100%);
+  background-size: 200% 100%;
+  animation: loading-animation 2s infinite;
+}
+
+/* Porcentaje de progreso al lado */
+.progress-percentage {
+  margin-left: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Animación de la barra de carga */
+@keyframes loading-animation {
+  0% {
+      background-position: 100% 0;
+  }
+  100% {
+      background-position: 0 0;
+  }
 }
