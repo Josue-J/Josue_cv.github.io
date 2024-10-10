@@ -78,7 +78,7 @@ html {
   font-size: 62.5%;/*1rem =10px*/
   overflow: scroll; /* Permite el desplazamiento */
   -ms-overflow-style: none;  /* Para IE y Edge */
- 
+  
 }
 html::-webkit-scrollbar {
   display: none;  /* Oculta las barras de scroll en Chrome, Safari y Opera */
@@ -178,13 +178,15 @@ position: relative;
   -webkit-box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
   -moz-box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
   box-shadow: 4px 2px 3px 1px rgba(135,135,135,1);
+  animation: float 3s ease-in-out infinite; /* Aplica la animaci*/
+
 }
 
 @media (min-width: 800px ) {
   .nametag {
     font-size: 1rem;
       top: 30%;
-      left: 60%; 
+      left: 68%; 
     }
     
     
@@ -193,7 +195,7 @@ position: relative;
   .nametag {
     font-size: 1.2rem;
     top: 30%;
-    left: 56%; 
+    left: 57%; 
   
   }
   }
@@ -352,15 +354,21 @@ ul{
 
 
 .competencias_Tec {
-  background-color: rgba(246, 78, 78, 0.8); 
-  height: 100vh;
-  width: 100vh;
+  background-color: rgba(66, 65, 65, 0.8); 
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
   
 }
 
+.competencias{
+  color: var(--primario);
+}
 
+.ocultar {
+  visibility: hidden;
 
-
+}
 
 /*! --------- */
 
