@@ -1,0 +1,9 @@
+
+
+100%Portada: Incluye tu nombre, título profesional y una imagen que te represente.
+100%Sobre mí: Una breve descripción sobre ti, tus habilidades y tu experiencia.% 
+75% Proyectos:
+75% Proyectos Destacados: Muestra tus mejores trabajos, tanto actuales como anteriores, con descripciones y, si es posible, imágenes o enlaces.
+0%Habilidades Técnicas: Enumera tus habilidades técnicas relevantes. (LOGO+  NOMBRE+  BOLITAS  + TEXTO DE NIVEL<basico intermedio etc >)
+0 %Educación: Detalla tu formación académica y certificaciones. (logos y desplegara un listado de  los cursos llevados)
+0%Contacto: Proporciona tus datos de contacto y enlaces a tus redes profesionales.
