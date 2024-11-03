@@ -1,19 +1,13 @@
-/* const emailButton = document.getElementById('copy')
-emailButton.addEventListener('click', ()=>{
-    const emailAddress = 'josue.ch997@gmail.com'
-    navigator.clipboard.writeText(emailAddress);
-    emailButton.innerHTML= 'Copied!'
-    emailButton.classList.remove('btn-light');
-    emailButton.classList.add('btn-success');
-    setTimeout(() => {
-      emailButton.innerHTML = 'Copiar';
-      emailButton.classList.remove('btn-success');
-      emailButton.classList.add('btn-light');
-    }, 5000);
-})
- */
+const emailButton = document.getElementById('copy')
+const CompetenciasT=document.querySelector(".nametag")
+const btn_opciones = document.querySelectorAll(".btn-Proyectos")
+// Initialize and add the map
+let map;
+let shapes = []; // Almacenaremos las formas en un arreglo
+const changeDirectionInterval = 1000; // Tiempo en milisegundos para cambiar de dirección automáticamente
 
-document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function() { 
     // Inicializar las figuras
     initializeShapes();
 
@@ -21,44 +15,178 @@ document.addEventListener("DOMContentLoaded", function() {
     moveShapes();
 
     // Mover las otras figuras cada 5 segundos (opcional)
-    centerShapes();
     setInterval(moveShapes2, 5000);
 
+    // Función para copiar el correo electrónico al portapapeles
+    btn_opciones.forEach(button => {
+        button.addEventListener("click", btn_P_Click);
+    });
+
+       // Selecciona todos los elementos con la clase .black_bg
+       const elements = document.querySelectorAll(".black_bg");
+
+       elements.forEach(element => {
+           element.addEventListener("mouseenter", () => {
+               element.classList.add("animate"); // Añade la clase para activar la animación
+           });
+       });
 });
 
-// Initialize and add the map
-let map;
 
-async function initMap() {
-  // The location of Tigre
-  const position = { lat:14.64072, lng:  -90.51327};
-  // Request needed libraries.
-  const { Map } = await google.maps.importLibrary("maps");
-  console.log('estoy funcionando');
-  
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-  // The map, centered at Tigre
-  map = new Map(document.getElementById("map"), {
-    zoom: 12,
-    center: position,
-    mapId: "DEMO_MAP_ID",
-  });
 
-  // The marker, positioned at Tigre
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Mi Ubicacion",
+
+
+
+    function btn_P_Click(e) {
+        const button = e.target; // Obtiene el botón que fue clickeado
+        const currentState = button.value; // Obtiene el estado actual del botón
+
+
+
+
+       
+        // Cambia el estado en función del value
+        if (currentState === "inactive") {
+            button.value = "active";
+            button.innerHTML = `<i class="bi bi-eye-slash"></i> ver menos`;
+            opcionesbtn_write(e, currentState);
+             // Muestra que el botón está activo
+        } else {
+           
+            button.innerHTML = ` <i class="bi bi-eye"></i> ver mas...`; // Muestra que el botón está inactivo
+            let infoDiv = button.previousElementSibling;
+            if (infoDiv && infoDiv.classList.contains("divP-info") && currentState === "active") 
+                // Si existe y el botón pasa a estado inactivo, elimina el div
+            {
+                    infoDiv.remove();
+                }
+
+                button.value = "inactive";
+       
+        }
     
-  });
-}
-let shapes = []; // Almacenaremos las formas en un arreglo
-const changeDirectionInterval = 1000; // Tiempo en milisegundos para cambiar de dirección automáticamente
+        // Llama a la función para registrar el cambio de estado
+        //logButtonStatus(button);
+    }
 
-// Inicializar posiciones y propiedades de las figuras
+function opcionesbtn_write(e){
+    const button = e.target; // Obtiene el botón que fue clickeado
+    //console.log(button.getAttribute('data-option'));
+
+      // Crea y agrega el div antes del botón con innerHTML
+      const newDiv = document.createElement("div");
+     
+     newDiv.classList.add("divP-info");
+    
+
+    switch(button.getAttribute('data-option')){
+        case '1': //proyecto 1
+           // console.log('hola');
+
+           newDiv.innerHTML = `
+             <div class="Contenidop1 btn-Pcont">
+                            <h5>Objetivos</h5>
+                            <ul>
+                                <li>Aplicar conocimientos sobre las fases léxica y sintáctica de un compilador para la creación de un intérprete sencillo con funcionalidades básicas.</li>
+                                <li>Implementar un proceso de interpretación de código de alto nivel aplicando los conceptos de compiladores.</li>
+                                <li>Analizar un lenguaje de programación y generar las salidas esperadas utilizando la teoría de compiladores.</li>
+                                <li>Desarrollar soluciones de software aplicando la teoría de compiladores.</li>
+                                <li>Desarrollar aplicaciones utilizando la arquitectura cliente-servidor.</li>
+                           
+                               
+                            </ul>
+                            <h5>Tecnologias para su desarrollo</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-filetype-js"></i> JavaScript</li>
+                                <li><i class="bi bi-filetype-js"></i> TypeScrip</li>
+                                <li><i class="bi bi-gear"></i> Jison</li>
+                                <li> <i class="bi bi-gear-fill"></i> Node.JS </li >
+                                <li><i class="bi bi-filetype-html"></i>  html</li>
+                                <li><i class="bi bi-filetype-css"></i> css</li>
+                                <li> <i class="bi bi-gitlab"></i> Git & Git Lab</li>
+
+                            </ul>
+                           
+                        </div>
+       `;
+
+
+
+            
+            break;  
+
+        case '2': // proyecto 2
+            //console.log('hola2');
+            newDiv.innerHTML = `
+                <div class="contenidop2 btn-Pcont">
+                                <h5>Objetivos</h5>
+                                <ul>
+                                    <li>Aplicar y reforzar conocimientos sobre TDA (Tipos Abstractos de Datos), implementando únicamente estos en el proyecto.</li>
+                                    <li>Comprender y desarrollar distintos tipos de estructuras de datos no lineales.</li>
+                                    <li>Definir e implementar algoritmos de búsqueda, recorrido y eliminación en estructuras de datos.</li>
+                              
+                                 
+                                </ul>
+                                <h5>Estructuras  TDS Implementadas</h5>
+                                <ul >
+                                    <li>Pilas</li>
+                                    <li> Listas Enlazadas Simples</li>
+                                    <li> Listas doblemente Enlazadas</li>
+                                    <li> Matriz dispersa</li>
+                                    <li> Arbol AVL</li>
+                                    <li> Arbol ABB</li>
+                                    <li> Arbol B </li>
+                                    <li> Grafos </li>
+                                 
+                                </ul>
+                                <h5>Tecnologias para su desarrollo</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="bi bi-filetype-js"></i> c++</li>
+                                    <li>  <i class="bi bi-github"></i> Git & GitHub </li>
+                                 
+                                </ul>
+
+
+
+
+                            </div>
+            
+            
+            `; // Usando innerHTML
+            break;
+        case '3'://*proyecto 3
+            //console.log('hola3');
+            newDiv.innerHTML = `
+            <h5>Objetivos</h5>
+            <ul>
+                <li>Desarrollar una plataforma personal donde los potenciales clientes o empleadores puedan ver mis proyectos y habilidades.</li>
+                <li>Crear un diseño visualmente atractivo y funcional que sea accesible desde diferentes dispositivos.</li>
+                <li>Integrar secciones para proyectos actuales, tecnologías en uso, y una descripción clara de mis habilidades.</li>
+            </ul>
+            <h5>Tecnologías para su desarrollo</h5>
+            <ul class="list-unstyled">
+                <li><i class="bi bi-filetype-html"></i> HTML</li>
+                <li><i class="bi bi-filetype-css"></i> CSS</li>
+                <li><i class="bi bi-filetype-js"></i> JavaScript</li>
+                <li><i class="bi bi-bootstrap"></i> Bootstrap</li>
+                <li><i class="bi bi-github"></i> GitHub Page</li>
+            </ul>
+        `;
+          
+            break;
+        default:
+            console.log('opcion no valida ');
+            return;
+        
+    }
+    button.insertAdjacentElement("beforebegin", newDiv);
+
+}
 function initializeShapes() {
+
     const shapeElements = document.querySelectorAll('.shape');
+    
     const container = document.querySelector('.container--icons');
 
     shapeElements.forEach(shape => {
@@ -144,20 +272,7 @@ function moveShapes2() {
     });
 }
 
-// Función para centrar las figuras opcionalmente
-function centerShapes() {
-    const container = document.querySelector('.container--icons');
-    const shapes2 = document.querySelectorAll('.shape2');
-    const centerX = (container.clientWidth - 50) / 2;
-    const centerY = (container.clientHeight - 50) / 2;
-        
-    shapes2.forEach(shape => {
-        shape.style.transform = `translate(${centerX}px, ${centerY}px)`;
-    });
-}
-
-
-
-
-
-initMap();
+CompetenciasT.addEventListener('click',()=>{
+    console.log('hola');
+    alert("I am an alert box!");  
+});
