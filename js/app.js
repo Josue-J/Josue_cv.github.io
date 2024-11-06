@@ -1,10 +1,34 @@
+
+
+
 const emailButton = document.getElementById('copy')
 const CompetenciasT=document.querySelector(".nametag")
 const btn_opciones = document.querySelectorAll(".btn-Proyectos")
+const btn_opciones2 = document.querySelectorAll(".btn-Competencias")
+const contenidoCompetancias=document.querySelector(".competencias--contenido")
 // Initialize and add the map
 let map;
 let shapes = []; // Almacenaremos las formas en un arreglo
 const changeDirectionInterval = 1000; // Tiempo en milisegundos para cambiar de dirección automáticamente
+
+let listaCompetencias=[];
+
+
+class Competencia {
+    constructor(competencia, nivel, intnivel, type, icono) {
+        this.competencia = competencia;
+        this.nivel = nivel;
+        this.intnivel = intnivel;
+        this.type = type;
+        this.icono = icono;
+    }
+}
+
+
+
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function() { 
@@ -16,8 +40,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Mover las otras figuras cada 5 segundos (opcional)
     setInterval(moveShapes2, 5000);
-
+    cargarCompetencias();
     // Función para copiar el correo electrónico al portapapeles
+    btn_opciones2.forEach(button => {
+        button.addEventListener("click", btn_Comp_Click);
+    });
+
+
     btn_opciones.forEach(button => {
         button.addEventListener("click", btn_P_Click);
     });
@@ -33,9 +62,102 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+function eliminarTodosLosHijos(e) {
+    while (e.firstChild) {
+        e.removeChild(e.firstChild);
+    }
+}
+
+function btn_Comp_Click(e) {
+    const button = e.target;
+    console.log(button.textContent);
+    console.log(button.dataset.option);
+    
+    // Limpia el panel donde se encuentran las competencias
+    eliminarTodosLosHijos(contenidoCompetancias);
+    
+    // Recorre la lista de competencias y muestra las que cumplen con el filtro
+    listaCompetencias.forEach(item => {
+        if (item.type == button.dataset.option) {
+            console.log(item.competencia);
+            
+            // Crea y agrega el div antes del botón con innerHTML
+            const newDiv = document.createElement("div");
+            
+            newDiv.classList.add("col-lg-3");
+
+            const newDiv2=document.createElement("div");
+            newDiv2.classList.add("div-competencias");
+            
+            newDiv2.innerHTML += ` <h4 class="text-center Competencias-title">${item.competencia}</h4>`;
+
+             const newdiv3=document.createElement("div");
+            newdiv3.classList.add("icon-container", "d-flex","justify-content-center", "align-items-center");
+
+            newdiv3.innerHTML += ` <img src="${item.icono}" alt="Icono de ${item.competencia}">`;
+            newDiv2.appendChild(newdiv3);
 
 
+            const newDiv4=document.createElement("div");
+            newDiv4.classList.add("skill-level", "d-flex", "justify-content-center");   
 
+                
+
+            // Calcular el nivel y agregar los diamantes
+            for (let i = 0; i < 5; i++) {
+                if (i < Math.floor(item.intnivel)) {
+                    newDiv4.innerHTML += `<span class="diamond active"></span>`;
+                } else if (i === Math.floor(item.intnivel) && !Number.isInteger(item.intnivel)) {
+                    newDiv4.innerHTML += `<span class="diamond half"></span>`;
+                } else {
+                    newDiv4.innerHTML += `<span class="diamond"></span>`;
+                }
+            }
+             // Agregar el nuevo div al contenedor
+
+            newDiv2.appendChild(newDiv4);
+
+
+            
+            
+            newDiv2.innerHTML += `
+            </div>
+            <p class="text-center level-description">${item.nivel}</p>
+            
+            
+            `;
+            
+            newDiv.appendChild(newDiv2);
+           
+            contenidoCompetancias.appendChild(newDiv);
+        }
+    });
+}
+
+
+// Función para cargar el JSON y agregar objetos a la lista
+function cargarCompetencias() {
+
+    fetch('data/competencias.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el archivo JSON');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Añadir cada elemento a la listaCompetencias
+            data.forEach(item => {
+                listaCompetencias.push(
+                    new Competencia(item.competencia, item.nivel, item.intnivel, item.type, item.icono)
+                );
+            });
+
+            console.table(listaCompetencias); // Verificar en consola
+            //mostrarCompetencias(listaCompetencias); // Llamar función para mostrar en HTML
+        })
+        .catch(error => console.error(error));
+}
 
 
     function btn_P_Click(e) {

@@ -1,0 +1,192 @@
+[
+    {
+        "competencia": "HTML",
+        "nivel": "Intermedio",
+        "intnivel": 2.5,
+        "type": 0,
+        "icono": "https://img.icons8.com/?size=100&id=D2Hi2VkJSi33&format=png&color=000000"  
+
+    },
+    {
+        "competencia": "CSS",
+        "nivel": "Intermedio",
+        "intnivel": 2.5,
+        "type": 0,
+        "icono": "https://img.icons8.com/?size=100&id=107497&format=png&color=000000"
+    },
+    {
+        "competencia": "JavaScript",
+        "nivel": "Intermedio-bajo",
+        "intnivel":2 ,
+        "type": 0,
+        "icono": "https://img.icons8.com/?size=100&id=108784&format=png&color=000000"
+    },
+    {
+        "competencia": "SASS",
+        "nivel": "Basico-Alto",
+        "intnivel": 1.5,
+        "type": 0,
+        "icono": "https://img.icons8.com/?size=100&id=axPniFSugeXC&format=png&color=000000"
+    },
+
+
+    {
+        "competencia": "React",
+        "nivel": "Basico",
+        "intnivel": 1.5,
+        "type": 1,
+        "icono": "https://img.icons8.com/?size=100&id=25Sjy8fKExYA&format=png&color=000000"
+    },
+    {
+        "competencia": "Vue",
+        "nivel": "Basico Alto",
+        "intnivel": 1.5,
+        "type": 1,
+        "icono": "https://img.icons8.com/?size=100&id=BUnExfsRs3CW&format=png&color=000000"
+    },
+    {
+        "competencia": "Node.js",
+        "nivel": "Basico",
+        "intnivel": 1.5,
+        "type": 1,
+        "icono": "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000"
+    },
+    {
+        "competencia": "Django",
+        "nivel": "Basico",
+        "intnivel": 1.5,
+        "type": 1,
+        "icono": "https://img.icons8.com/?size=100&id=hs3gwiXlyJ01&format=png&color=000000"
+    },
+    {
+        "competencia": "APIs de Google",
+        "nivel": "Basico",
+        "intnivel": 2,
+        "type": 1,
+        "icono": "https://img.icons8.com/?size=100&id=hs3gwiXlyJ01&format=png&color=000000"
+    },
+    {
+        "competencia": "APIs de redes sociales",
+        "nivel": "Basico",
+        "intnivel": 2,
+        "type": 1,
+        "icono": "https://img.icons8.com/?size=100&id=Wr2FqAb3M8nX&format=png&color=000000"
+    },
+
+
+
+    {
+        "competencia": "Python",
+        "nivel": "Intermedio",
+        "intnivel": 3,
+        "type": 2,
+        "icono": "https://img.icons8.com/?size=100&id=121464&format=png&color=000000"
+    },
+    {
+        "competencia": "C++",
+        "nivel": "Intermedio",
+        "intnivel": 3,
+        "type": 2,
+        "icono": "https://img.icons8.com/?size=100&id=55193&format=png&color=000000"
+    },
+
+    {
+        "competencia": "Java",
+        "nivel": "Intermedio",
+        "intnivel": 3,
+        "type": 2,
+        "icono": "https://img.icons8.com/?size=100&id=46630&format=png&color=000000"
+    },
+
+    {
+        "competencia": "C",
+        "nivel": "Intermedio_Bajo",
+        "intnivel": 2.5,
+        "type": 2,
+        "icono": "https://img.icons8.com/?size=100&id=46440&format=png&color=000000"
+    },
+    {
+        "competencia": "Fortran",
+        "nivel": "Básico",
+        "intnivel": 1,
+        "type": 2,
+        "icono": "https://img.icons8.com/?size=100&id=P524hJNGtLff&format=png&color=000000"
+    },
+
+
+    
+    {
+        "competencia": "MySQL",
+        "nivel": "Intermedio Bajo",
+        "intnivel": 2.5,
+        "type": 3,
+        "icono": "https://img.icons8.com/?size=100&id=42904&format=png&color=000000"
+    },
+
+
+
+    {
+        "competencia": "Git",
+        "nivel": "Intermedio",
+        "intnivel": 3,
+        "type": 4,
+        "icono": "https://img.icons8.com/?size=100&id=j6tO4jtQBisT&format=png&color=000000"
+    },
+    {
+        "competencia": "GitHub",
+        "nivel": "Intermedio",
+        "intnivel": 3,
+        "type": 4,
+        "icono": "https://img.icons8.com/?size=100&id=SyIpM4vSpYTF&format=png&color=000000"
+    },
+    {
+        "competencia": "GitLab",
+        "nivel": "Basico",
+        "intnivel": 1.5,
+        "type": 4,
+        "icono": "https://img.icons8.com/?size=100&id=xNOPrIk9lLyq&format=png&color=000000"
+    },
+    {
+        "competencia": "Amazon Web Services (AWS)",
+        "nivel": "Basico",
+        "intnivel": 2,
+        "type": 5,
+        "icono": "https://img.icons8.com/?size=100&id=104254&format=png&color=000000"
+    },
+    {
+        "competencia": "DevOps Fundamentos",
+        "nivel": "Basico",
+        "intnivel": 2,
+        "type": 5,
+        "icono": "https://img.icons8.com/?size=100&id=103944&format=png&color=000000"
+    },
+
+    {
+        "competencia": "Trabajo en equipo",
+        "nivel": "Intermedio Alto",
+        "intnivel": 3.5  ,
+        "type": 6,
+        "icono": "https://img.icons8.com/?size=100&id=GNjpmJOfO8fT&format=png&color=000000"
+    },
+    {
+        "competencia": "Ingles A2",
+        "nivel": "Basico Alto",
+        "intnivel": 1.5  ,
+        "type": 6,
+        "icono": "https://img.icons8.com/?size=100&id=120530&format=png&color=000000"
+    },
+
+
+    {
+        "competencia": "Adaptabilidad",
+        "nivel": "Avanzado",
+        "intnivel": 5,
+        "type": 6,
+        "icono": "https://img.icons8.com/?size=100&id=97367&format=png&color=000000"
+    }
+
+
+
+
+
+]
