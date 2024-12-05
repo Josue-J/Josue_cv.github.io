@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "tipo": "Certifiación",
+        "titulo": "Ingles",
+        "institucion": "Udemy",
+        "fechaInicio": "2016-01-01",
+        "fechaFin": "2021-01-01",
+        "descripcion": "Certificación de Ingles en la plataforma de Udemy"
+    },
+    
+    {
+        "id": 2,
+        "titulo": "Bachiller en Computación",
+        "institucion": "Instituto Nacional de Educación Diversificada",
+        "fechaInicio": "2011-01-01",
+        "fechaFin": "2015-01-01",
+        "descripcion": "Estudios de Bachiller en Computación en el Instituto Nacional de Educación Diversificada"
+
+    }
+
+
+
+
+]
