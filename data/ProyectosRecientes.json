@@ -1,0 +1,96 @@
+[
+    {
+        "nombre":"<i class=\"bi bi-gear-wide-connected\"></i>  <i class=\"bi bi-tools \"></i> Comp-Interpreter ",
+        "descripcion":"Proyecto interprete capaz de reconocer un nuevo lenguaje de programacion y generar reportes",
+        "porcentaje": "80%",
+        "objetivos":[
+            "Aplicar conocimientos sobre las fases léxica y sintáctica de un compilador para la creación de un intérprete sencillo con funcionalidades básicas.",
+            "Implementar un proceso de interpretación de código de alto nivel aplicando los conceptos de compiladores.",
+            "Analizar un lenguaje de programación y generar las salidas esperadas utilizando la teoría de compiladores.",
+            "Analizar un lenguaje de programación y generar las salidas esperadas utilizando la teoría de compiladores.",
+            "Desarrollar soluciones de software aplicando la teoría de compiladores.",
+            "Desarrollar aplicaciones utilizando la arquitectura cliente-servidor."
+        ], 
+        "tecnologias":[
+            {
+                "nombre":"JavaScrip",
+                "icono":"<i class=\"bi bi-filetype-js\"></i>"
+            },
+            {
+                "nombre":"TypeScrip",
+                "icono":"<i class=\"bi bi-filetype-js\"></i>"
+            },
+            {
+                "nombre":"NodeJs",
+                "icono":"<i class=\"bi bi-gear-fill\"></i>"
+            },
+            {
+                "nombre":"Jison",
+                "icono":"<i class=\"bi bi-gear\"></i>"
+            },
+            {
+                "nombre":"Bootstrap",
+                "icono":"<i class=\"bi bi-bootstrap\"></i>"
+            },
+            {
+                "nombre":"HTML",
+                "icono":"<i class=\"bi bi-file-earmark-code\"></i>"
+            },
+            {
+                "nombre":"CSS",
+                "icono":"<i class=\"bi bi-file-earmark-code\"></i>"
+            },
+            {
+                "nombre": "GIT",
+                "icono": "<i class=\"bi bi-gitlab\"></i>"
+
+            }
+            
+        ]
+        
+     
+
+    },
+    {
+        "nombre" :"<i class=\"bi bi-people-fill\"></i>  <i class=\"bi bi-diagram-3-fill \"></i> Social  Structure </h3>",
+
+        "descripcion":"Proyecto de una red social que proporciona una experiencia intuitiva al usuario, incluyendo la mayoría de las características de una red social moderna, con una interfaz tanto para el administrador como para el usuario.",
+        "porcentaje": "30%",
+        "objetivos":[
+            "Desarrollar una plataforma personal donde los potenciales clientes o empleadores puedan ver mis proyectos y habilidades.", 
+            "Crear un diseño visualmente atractivo y funcional que sea accesible desde diferentes dispositivos.",
+            " Integrar secciones para proyectos actuales, tecnologías en uso, y una descripción clara de mis habilidades."
+        ],
+        "tecnologias":[
+         {
+            "nombre":"C++",
+            "icono":"<i class=\"bi bi-file-earmark-code\"></i>"  
+         },
+         {
+            "nombre":"Git",
+            "icono":"<i class=\"bi bi-github\"></i>"
+         }
+        
+
+
+
+        ]
+
+
+    },
+    {
+        "nombre":"<i class=\"bi bi-file-person\"></i>  Mi Portafolio </h3>",
+        "descripcion":"Este proyecto es el desarrollo de mi portafolio personal, una plataforma que presenta mis habilidades, proyectos y experiencias como desarrollador. La página está diseñada para ser responsiva y fácil de navegar, con un enfoque en la presentación clara y profesional de mi trabajo.",
+        "porcentaje": "50%",
+        "objetivos":[
+            "Desarrollar una plataforma personal donde los potenciales clientes o empleadores puedan ver mis proyectos y habilidades.", 
+            "Crear un diseño visualmente atractivo y funcional que sea accesible desde diferentes dispositivos.",
+            " Integrar secciones para proyectos actuales, tecnologías en uso, y una descripción clara de mis habilidades.",
+            "Facilidad de actualización y mantenimiento. aun siendo css , html, js puro"
+
+        ]
+
+    }
+
+
+]

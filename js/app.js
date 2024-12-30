@@ -1,17 +1,19 @@
 
-
-
+const btn_gits= document.querySelector('.btn-gits')
+const btntrabajemos = document.getElementById('trabajemos')
 const emailButton = document.getElementById('copy')
 const CompetenciasT=document.querySelector(".nametag")
-const btn_opciones = document.querySelectorAll(".btn-Proyectos")
-const btn_opciones2 = document.querySelectorAll(".btn-Competencias")
+let btn_Proyectos //= document.querySelectorAll(".btn-Proyectos")
+const btn_Competencias = document.querySelectorAll(".btn-Competencias")
 const contenidoCompetancias=document.querySelector(".competencias--contenido")
+
 // Initialize and add the map
 let map;
 let shapes = []; // Almacenaremos las formas en un arreglo
 const changeDirectionInterval = 1000; // Tiempo en milisegundos para cambiar de dirección automáticamente
 
 let listaCompetencias=[];
+let proyectosrecientes=[];
 
 
 class Competencia {
@@ -24,43 +26,73 @@ class Competencia {
     }
 }
 
+class Proyecto {
+    constructor(nombre, descripcion,objetivos, tecnologias ,porcentaje,ittext=null) {
+        this.nombre = nombre;
+        this.objetivos = objetivos;
+        this.descripcion = descripcion;
+        this.tecnologias = tecnologias;
+        this.porcentaje = porcentaje;
+        this.ittext=ittext;
 
-
-
-
+    }
+    
+}
 
 
 
 document.addEventListener("DOMContentLoaded", function() { 
+   
+    //*animacion de portadas
     // Inicializar las figuras
     initializeShapes();
 
-    // Ejecutar el movimiento continuo
+     // Mover las otras figuras cada 5 segundos (opcional)
+     setInterval(moveShapes2, 5000);
+
+
     moveShapes();
 
-    // Mover las otras figuras cada 5 segundos (opcional)
-    setInterval(moveShapes2, 5000);
-    cargarCompetencias();
+
+
+    //carga contenido de la pagina sobre mi carga de competencias y proyectos
+    cargadatos();
+    //console.log('cbtngit', btn_gits);
+
+   btn_gits.addEventListener('click',writeProyect);
+ 
+
+   //*seccion conpetencias iconos y nonbres
+   
     // Función para copiar el correo electrónico al portapapeles
-    btn_opciones2.forEach(button => {
+    btn_Competencias.forEach(button => {
         button.addEventListener("click", btn_Comp_Click);
     });
-
-
-    btn_opciones.forEach(button => {
-        button.addEventListener("click", btn_P_Click);
-    });
-
-       // Selecciona todos los elementos con la clase .black_bg
-       const elements = document.querySelectorAll(".black_bg");
-
-       elements.forEach(element => {
-           element.addEventListener("mouseenter", () => {
-               element.classList.add("animate"); // Añade la clase para activar la animación
-           });
-       });
+    
+    //*botnes de proyectos recientes
+     
 });
 
+
+function activarbtnProyectos( ){
+    const btn_Proyectos = document.querySelectorAll(".btn-Proyectos");
+    console.log(btn_Proyectos.length);
+    btn_Proyectos.forEach(button => {
+        button.addEventListener("click", btn_P_Click);
+        console.log('boton activado');
+    });
+}
+function cargadatos(){
+    sobremi();
+    cargarCompetencias();
+    cargarProyectos();
+}
+
+function gits_show(e){
+    
+
+
+}
 
 function eliminarTodosLosHijos(e) {
     while (e.firstChild) {
@@ -135,6 +167,142 @@ function btn_Comp_Click(e) {
 }
 
 
+function sobremi(){
+    const sobremi_cont=document.querySelector(".sobremi--texto");
+    let descripcionhtml;
+    fetch('../data/sobremi.json')
+
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error al cargar el archivo JSON');
+        }
+        return response.json(); // Convierte la respuesta en JSON
+    })
+    .then(data => {
+        const descripcionhtml = data[0]; // Obtiene la descripción del JSON
+      
+       // console.log("1. "+descripcionhtml) // Opcional: para depuración
+        sobremi_cont.innerHTML= descripcionhtml.descripcion;
+        
+    })
+    .catch(error => console.error("Error al cargar la descripción:", error));
+
+    //console.log("2."+ descripcionhtml);
+    
+}
+
+function cargarProyectos() {
+    fetch('data/ProyectosRecientes.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el archivo JSON');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Añadir cada elemento a la listaCompetencias
+            data.forEach(item => {
+                let itext1;
+                if  (item.ittext==null){
+                    itext1= item.ittext
+                }
+                proyectosrecientes.push(
+                    new Proyecto(item.nombre, item.descripcion, item.objetivos, item.tecnologias, item.porcentaje, itext1)
+                );
+                //console.log(item.nombre);
+            });
+           
+            
+            //console.log("competencias agregados a la lista");
+           //console.table(listaCompetencias); // Verificar en consola
+           if (proyectosrecientes.length>0){
+            
+            writeProyect()
+            activarbtnProyectos();                                         
+            }
+
+            
+            //mostrarCompetencias(listaCompetencias); // Llamar función para mostrar en HTML
+        })
+        .catch(error => console.error(error));
+
+
+
+}
+function writeProyect(){
+    let contador = 1;
+    const divProyectos = document.querySelector('.div--proyectos');
+    
+
+    proyectosrecientes.forEach(item => {
+       // console.log(item.porcentaje);
+
+            newDiv = document.createElement("div");
+            let classes = 'col-lg my-4 my-md-2 proyectos_desarollo box'.split(' ');
+            classes.forEach(cls => newDiv.classList.add(cls));
+            
+            let newdivRibbon=document.createElement("div");
+            newdivRibbon.classList.add("ribbon");
+            newdivRibbon.innerHTML = `<span>en desarrollo </span>`;
+            newDiv.appendChild(newdivRibbon);
+
+           let newh4=document.createElement("h4");
+           let classes2 = 'text-center display-5 display-md-3 my-3 titulosh4'.split(' ');
+            classes2.forEach(cls2 => newh4.classList.add(cls2));
+            
+            newh4.innerHTML=item.nombre;
+            newDiv.appendChild(newh4);
+
+            let newh5   =document.createElement("h5");
+            newh5.textContent= "Descripcion :";
+            newDiv.appendChild(newh5);
+            
+            let newp=document.createElement("p");
+            newp.textContent=item.descripcion||"DESCRIPCION";
+            newDiv.appendChild(newp);
+
+            let newh5_2=document.createElement("h5");
+
+            newh5_2.textContent="Progreso:";
+            newDiv.appendChild(newh5_2);
+
+                // Crear barra de progreso
+            newDiv.innerHTML += `
+            <div class="progress-container">
+                <div class="progress-background">
+                    <div class="progress-bar" style="width: ${item.porcentaje};"></div>
+                </div>
+                <span class="progress-percentage">${item.porcentaje}</span>
+            </div>
+            <div class="d-flex justify-content-center justify-content-md-end">
+                <button data-option="${contador}" value="inactive" class="btn btn-light my-4 px-4 py-2 rounded-pill btn-Proyectos">
+                    <i class="bi bi-eye"></i> Ver más..
+                </button>
+            </div>`;
+
+            const lastChild = divProyectos.lastElementChild;
+divProyectos.insertBefore(newDiv, lastChild);   
+contador++;
+
+        
+    });
+
+    
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
 // Función para cargar el JSON y agregar objetos a la lista
 function cargarCompetencias() {
 
@@ -152,15 +320,84 @@ function cargarCompetencias() {
                     new Competencia(item.competencia, item.nivel, item.intnivel, item.type, item.icono)
                 );
             });
-
-            console.table(listaCompetencias); // Verificar en consola
+            //console.log("competencias agregados a la lista");
+           //console.table(listaCompetencias); // Verificar en consola
+           if (listaCompetencias.length>0){
+               mostrarCompetenecias();}
             //mostrarCompetencias(listaCompetencias); // Llamar función para mostrar en HTML
         })
         .catch(error => console.error(error));
+
+        
 }
 
 
-    function btn_P_Click(e) {
+
+function mostrarCompetenecias(){
+    //console.log("mostrar competencias inicio  ya cargadas");
+    //console.table(listaCompetencias.length);
+    // Recorre la lista de competencias y muestra las que cumplen con el filtro
+    listaCompetencias.forEach(item => {
+       
+           // console.log(item.competencia);
+            
+            // Crea y agrega el div antes del botón con innerHTML
+            const newDiv = document.createElement("div");
+            
+            newDiv.classList.add("col-lg-3");
+
+            const newDiv2=document.createElement("div");
+            newDiv2.classList.add("div-competencias");
+            
+            newDiv2.innerHTML += ` <h4 class="text-center Competencias-title">${item.competencia}</h4>`;
+
+             const newdiv3=document.createElement("div");
+            newdiv3.classList.add("icon-container", "d-flex","justify-content-center", "align-items-center");
+
+            newdiv3.innerHTML += ` <img src="${item.icono}" alt="Icono de ${item.competencia}">`;
+            newDiv2.appendChild(newdiv3);
+
+
+            const newDiv4=document.createElement("div");
+            newDiv4.classList.add("skill-level", "d-flex", "justify-content-center");   
+
+                
+
+            // Calcular el nivel y agregar los diamantes
+            for (let i = 0; i < 6; i++) {
+                if (i < Math.floor(item.intnivel)) {
+                    newDiv4.innerHTML += `<span class="diamond active"></span>`;
+                } else if (i === Math.floor(item.intnivel) && !Number.isInteger(item.intnivel)) {
+                    newDiv4.innerHTML += `<span class="diamond half"></span>`;
+                } else {
+                    newDiv4.innerHTML += `<span class="diamond"></span>`;
+                }
+            }
+             // Agregar el nuevo div al contenedor
+
+            newDiv2.appendChild(newDiv4);
+
+
+            
+            
+            newDiv2.innerHTML += `
+            </div>
+            <p class="text-center level-description">${item.nivel}</p>
+            
+            
+            `;
+            
+            newDiv.appendChild(newDiv2);
+           
+            contenidoCompetancias.appendChild(newDiv);
+        
+    });
+
+
+
+}
+
+function btn_P_Click(e) {
         const button = e.target; // Obtiene el botón que fue clickeado
         const currentState = button.value; // Obtiene el estado actual del botón
 
@@ -190,7 +427,7 @@ function cargarCompetencias() {
     
         // Llama a la función para registrar el cambio de estado
         //logButtonStatus(button);
-    }
+}
 
 function opcionesbtn_write(e){
     const button = e.target; // Obtiene el botón que fue clickeado
@@ -220,7 +457,7 @@ function opcionesbtn_write(e){
                             </ul>
                             <h5>Tecnologias para su desarrollo</h5>
                             <ul class="list-unstyled">
-                                <li><i class="bi bi-filetype-js"></i> JavaScript</li>
+                                <li> JavaScript</li>
                                 <li><i class="bi bi-filetype-js"></i> TypeScrip</li>
                                 <li><i class="bi bi-gear"></i> Jison</li>
                                 <li> <i class="bi bi-gear-fill"></i> Node.JS </li >
@@ -305,6 +542,9 @@ function opcionesbtn_write(e){
     button.insertAdjacentElement("beforebegin", newDiv);
 
 }
+
+
+
 function initializeShapes() {
 
     const shapeElements = document.querySelectorAll('.shape');
